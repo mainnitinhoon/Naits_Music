@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nait's Music</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: black;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .site-title {
+      font-size: 2.5rem;
+      color: white;
+      font-weight: bold;
+    }
+
+    nav {
+      margin-top: 0;
+      background-color: rgb(12, 196, 232);
+      position: sticky;
+      top: 0;
+      z-index: 1001;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+
+   .nav-bar {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 10px 0;
+  gap: 15px;
+}
+.nav-bar li {
+  margin: 0;
+}
+.nav-btn {
+  display: inline-block;
+  padding: 8px 22px;
+  border-radius: 25px;
+  background: #222;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  border: 2px solid #12c4e8;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+.nav-btn:hover, .nav-btn:focus {
+  background: #12c4e8;
+  color: #222;
+  border: 2px solid #fff;
+  text-decoration: none;
+}
+    .nav-bar a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    .nav-bar a:hover {
+      text-decoration: underline;
+    }
+
+    .main-container {
+      background-color: rgb(32, 30, 30);
+      max-width: 1300px;
+      margin: 20px auto;
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .card {
+      background-color: rgb(84, 80, 80);
+      height: 250px;
+      width: 200px;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      cursor: pointer;
+    }
+
+    .album-art {
+      background-color: rgb(113, 105, 105);
+      height: 150px;
+      width: 150px;
+      border-radius: 15px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 15px;
+    }
+
+    .album-art img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .song-title {
+      background-color: beige;
+      height: 50px;
+      width: 150px;
+      margin-top: 10px;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #222;
+      font-weight: bold;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .main-container {
+        padding: 10px;
+      }
+      .card {
+        width: 45%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="site-title">Nait's Music</div>
+  </header>
+
+  <nav>
+    <div style="width:100%;background:#181818;padding:20px 0;text-align:center;">
+  <input id="searchInput" type="text" placeholder="Search songs..." style="width:300px;padding:10px 15px;border-radius:20px;border:none;font-size:1rem;">
+</div>
+    <ul class="nav-bar">
+      <li><a class="nav-btn" href="index.html">Home</a></li>
+      <li><a class="nav-btn" href="#trending">Trending Songs</a></li>
+      <li><a class="nav-btn" href="#for-you">For You</a></li>
+      <li><a class="nav-btn" href="#liked-songs">Liked Songs</a></li>
+      
+    </ul>
+  </nav>
+
+
+<Main class="main-container">
+  <div class="card" onclick="playSong('music/Akhiyaan_Gulaab__Song___Shahid_Kapoor,_Kriti_Sanon___Mitraz___Teri_Baaton_Mein_Aisa_Uljha_Jiya(0).mp4', 'Akhiyan Gulaab', 'lm_thumbnail/1000023062.png')">
+    <div class="album-art">
+      <img src="lm_thumbnail/1000023062.png" alt="Song 1 Cover" />
+    </div>
+    <div class="song-title">Akhiyan Gulaab</div>
+  </div>
+  <div class="card" onclick="playSong('music/Ramjhol_Bole_Gi___Masoom_Sharma___Sheenam_Katholic___Kay_D___Aarohi___New_Haryanvi_Song_2024(0).mp4', 'Pistol Bollegi', 'lm_thumbnail/1000023190.png')">
+    <div class="album-art">
+      <img src="lm_thumbnail/1000023190.png" alt="Song 2 Cover" />
+    </div>
+    <div class="song-title">Pistol Bollegi</div>
+  </div>
+  <div class="card" onclick="playSong('music/Full_Video__Raanjhan___Do_Patti___Kriti_Sanon,_Shaheer_Sheikh___Parampara_Tandon___Sachet-Parampara(0).mp4', 'Raanjhan', 'lm_thumbnail/1000023201.png')">
+    <div class="album-art">
+      <img src="lm_thumbnail/1000023201.png" alt="Song 3 Cover" />
+    </div>
+    <div class="song-title">Raanjhan</div>
+  </div>
+  <div class="card" onclick="playSong('music/ANIMAL__HUA_MAIN__Lyrical_Video____Ranbir_Kapoor,Rashmika_M___Sandeep_V___Raghav,Manoj_M___Bhushan_K(0).mp4', 'Hua Main', 'lm_thumbnail/1000023212.png')">
+    <div class="album-art">
+      <img src="lm_thumbnail/1000023212.png" alt="Song 4 Cover" />
+    </div>
+    <div class="song-title">Hua Main</div>
+  </div>
+  <div class="card" onclick="playSong('music/Pushpa__Srivalli_-_Lyrical__Hindi____Allu_Arjun,_Rashmika_Mandanna___Javed_Ali___DSP___Sukumar(0).mp4', 'Shrivalli', 'lm_thumbnail/1000023420.png')">
+    <div class="album-art">
+      <img src="lm_thumbnail/1000023420.png" alt="Song 5 Cover" />
+    </div>
+    <div class="song-title">Shrivalli</div>
+  </div>
+  <div class="card" onclick="playSong('music/THE_LAST_RIDE_-_Offical_Video____Sidhu_Moose_Wala___Wazir_Patar(0).mp4', 'The Last Ride', 'lm_thumbnail/1000023427.png')">
+    <div class="album-art">
+      <img src="lm_thumbnail/1000023427.png" alt="Song 6 Cover" />
+    </div>
+    <div class="song-title">The Last Ride</div>
+  </div>
+  <div class="card" onclick="playSong('music/THAA_-_Varinder_Brar__Official_Music_Video____Punjabi_Hit_Songs(0).mp4', 'Thaa', 'lm_thumbnail/1000023430.png')">
+    <div class="album-art">
+      <img src="lm_thumbnail/1000023430.png" alt="Song 7 Cover" />
+    </div>
+    <div class="song-title">Thaa</div>
+  </div>
+  <div class="card" onclick="playSong('music/Lafda__Official_Video__R_Nait_Ft._KD_DESI_ROCK___Prerna___Anusmriti___Mix_Singh___Josan_Bros(0).mp4', 'Lafda', 'lm_thumbnail/1000023435.png')">
+    <div class="album-art">
+      <img src="lm_thumbnail/1000023435.png" alt="Song 8 Cover" />
+    </div>
+    <div class="song-title">Lafda</div>
+  </div>
+  <div class="card" onclick="playSong('music/We_Rollin__Official_Audio__-_Shubh(0).mp4', 'Rollin', 'lm_thumbnail/1000023438.png')">
+    <div class="album-art">
+      <img src="lm_thumbnail/1000023438.png" alt="Song 9 Cover" />
+    </div>
+    <div class="song-title">Rollin</div>
+  </div>
+  <div class="card" onclick="playSong('music/SADQAY_-_AASHIR_WAJAHAT_x_NAYEL_x_NEHAAL_NASEEM__MUSIC_VIDEO__-_KE_JANAM_PYAAR_TUMSE_HAI(0).mp4', 'Sadqay', 'lm_thumbnail/1000023443.png')">
+    <div class="album-art">
+      <img src="lm_thumbnail/1000023443.png" alt="Song 10 Cover" />
+    </div>
+    <div class="song-title">Sadqay</div>
+  </div>
+  <div class="card" onclick="playSong('music/Phir_Aur_Kya_Chahiye__Zara_Hatke_Zara_Bachke__Vicky_K,_Sara_Ali_K,_Arijit_Singh,Sachin-Jigar,Amitabh(0).mp4', 'Phir aur Kya Chahiye', 'lm_thumbnail/1000023446.png')">
+    <div class="album-art">
+      <img src="lm_thumbnail/1000023446.png" alt="Song 11 Cover" />
+    </div>
+    <div class="song-title">Phir aur Kya Chahiye</div>
+  </div>
+  <div class="card" onclick="playSong('music/No_Love__Official_Audio__-_Shubh(0).mp3', 'No love', 'lm_thumbnail/1000023450.png')">
+    <div class="album-art">
+      <img src="lm_thumbnail/1000023450.png" alt="Song 12 Cover" />
+    </div>
+    <div class="song-title">No love</div>
+  </div>
+  <div class="card" onclick="playSong('music/Naina___Crew___Diljit_Dosanjh,_Ft._Badshah___Tabu,_Kareena_Kapoor_Khan,_Kriti_Sanon___Raj_Ranjodh(0).mp4', 'Naina', 'lm_thumbnail/1000023453.png')">
+    <div class="album-art">
+      <img src="lm_thumbnail/1000023453.png" alt="Song 13 Cover" />
+    </div>
+    <div class="song-title">Naina</div>
+  </div>
+  <div class="card" onclick="playSong('music/Spain__Official_Video_with_Extended_Version____Jassa_Dhillon___thiarajxtt___VIBIN(0).mp4', 'Spain', 'lm_thumbnail/1000023458.png')">
+    <div class="album-art">
+      <img src="lm_thumbnail/1000023458.png" alt="Song 14 Cover" />
+    </div>
+    <div class="song-title">Spain</div>
+  </div>
+  <div class="card" onclick="playSong('music/Teri_Baaton_Mein_Aisa_Uljha_Jiya__Title_Track___Shahid_Kapoor,_Kriti_Sanon___Raghav,Tanishk,Asees(0).mp3', 'Teri Batton me aisa Uljha jiya', 'lm_thumbnail/1000023461.png')">
+    <div class="album-art">
+      <img src="lm_thumbnail/1000023461.png" alt="Song 15 Cover" />
+    </div>
+    <div class="song-title">Teri Batton me aisa Uljha jiya</div>
+  </div>
+  <div class="card" onclick="playSong('music/Uyi_Amma_-_Azaad___Aaman_D,_Rasha_Thadani__Madhubanti_Bagchi,Amit_Trivedi,Amitabh__Bosco__Abhishek_K(0).mp4', 'Uyi Amma', 'lm_thumbnail/1000023466.png')">
+    <div class="album-art">
+      <img src="lm_thumbnail/1000023466.png" alt="Song 16 Cover" />
+    </div>
+    <div class="song-title">Uyi Amma</div>
+  </div>
+  <div class="card" onclick="playSong('music/Dil_Se_Dil_Tak__Full_Video____Varun,_Janhvi___Akashdeep,_Laqshay,_Kausar,_Suvarna___Sajid_N,_Nitesh(0).mp4', 'Dil Se Dil Tak', 'lm_thumbnail/1000023469.png')">
+    <div class="album-art">
+      <img src="lm_thumbnail/1000023469.png" alt="Song 17 Cover" />
+    </div>
+    <div class="song-title">Dil Se Dil Tak</div>
+  </div>
+  <div class="card" onclick="playSong('music/Ve_Kamleya___Rocky_Aur_Rani_Kii_Prem_Kahaani___Ranveer___Alia___Pritam___Amitabh___Arijit___Shreya(0).mp4', 'Ve Kamleya', 'lm_thumbnail/1000023474.png')">
+    <div class="album-art">
+      <img src="lm_thumbnail/1000023474.png" alt="Song 18 Cover" />
+    </div>
+    <div class="song-title">Ve Kamleya</div>
+  </div>
+  <div class="card" onclick="playSong('music/_AMBER____Arabic_Oriental_Dancehall_Type_Beat___Turkish_Reggaeton_Oriental_Balkan_Instrumental(0).mp4', 'Amber', 'lm_thumbnail/1000023477.png')">
+    <div class="album-art">
+      <img src="lm_thumbnail/1000023477.png" alt="Song 19 Cover" />
+    </div>
+    <div class="song-title">Amber</div>
+  </div>
+  <div class="card" onclick="playSong('music/Yimmy_Yimmy_-_Tayc___Shreya_Ghoshal___Jacqueline_Fernandez___Rajat_N___Rana___Nyadjiko___Anshul_Garg(0).mp4', 'Yimmy Yimmy', 'lm_thumbnail/1000023482.png')">
+    <div class="album-art">
+      <img src="lm_thumbnail/1000023482.png" alt="Song 20 Cover" />
+    </div>
+    <div class="song-title">Yimmy Yimmy</div>
+  </div>
+  <div class="card" onclick="playSong('music/JAWAN__Zinda_Banda__Hindi___Shah_Rukh_Khan__Atlee__Anirudh__Nayanthara__Vijay_Sethupathi__Deepika(0).mp4', 'Zinda banda', 'lm_thumbnail/1000023485.png')">
+    <div class="album-art">
+      <img src="lm_thumbnail/1000023485.png" alt="Song 21 Cover" />
+    </div>
+    <div class="song-title">Zinda banda</div>
+  </div>
+  <div class="card" onclick="playSong('music/ANIMAL_PEHLE_BHI_MAIN_Lyrical____Ranbir_Kapoor,Tripti_Dimri___Sandeep_V___Vishal_M,Raj_S___Bhushan_K(0).mp4', 'Phele Bhi Main', 'lm_thumbnail/1000023489.png')">
+    <div class="album-art">
+      <img src="lm_thumbnail/1000023489.png" alt="Song 22 Cover" />
+    </div>
+    <div class="song-title">Phele Bhi Main</div>
+  </div>
+  <div class="card" onclick="playSong('music/AUR_-_TU_HAI_KAHAN_-_Raffey_-_Usama_-_Ahad__Official_Music_Video_(0).mp4', 'Tu Hain Kahan', 'lm_thumbnail/1000023492.png')">
+    <div class="album-art">
+      <img src="lm_thumbnail/1000023492.png" alt="Song 23 Cover" />
+    </div>
+    <div class="song-title">Tu Hain Kahan</div>
+  </div>
+  <div class="card" onclick="playSong('music/ANIMAL__SATRANGA__Lyrical_Video__Ranbir_K,Rashmika_Sandeep_Arijit,Shreyas,Siddharth-Garima_Bhushan_K(0).mp3', 'Satranga', 'lm_thumbnail/1000023500.png')">
+    <div class="album-art">
+      <img src="lm_thumbnail/1000023500.png" alt="Song 24 Cover" />
+    </div>
+    <div class="song-title">Satranga</div>
+  </div>
+  <div class="card" onclick="playSong('music/Good_Bad_Ugly__God_Bless_U_Lyrical_Video___Ajith___Anirudh___GV_Prakash___Adhik_Ravichandran(0).mp4', 'God Bless U', 'lm_thumbnail/1000023502.png')">
+    <div class="album-art">
+      <img src="lm_thumbnail/1000023502.png" alt="Song 25 Cover" />
+    </div>
+    <div class="song-title">God Bless u</div>
+  </div>
+  <div class="card" onclick="playSong('music/Aaj_Ki_Raat___Stree_2___Tamannaah_Bhatia___Sachin-Jigar___Madhubanti___Divya___Amitabh(0).mp4', 'Aaj Ki Raat', 'lm_thumbnail/1000023510.png')">
+    <div class="album-art">
+      <img src="lm_thumbnail/1000023510.png" alt="Song 26 Cover" />
+    </div>
+    <div class="song-title">Aaj Ki Raat</div>
+  </div>
+  <div class="card" onclick="playSong('music/Sajni__Song___Arijit_Singh,_Ram_Sampath___Laapataa_Ladies____Aamir_Khan_Productions(0).mp4', 'Sajni Re', 'lm_thumbnail/1000023515.png')">
+    <div class="album-art">
+      <img src="lm_thumbnail/1000023515.png" alt="Song 27 Cover" />
+    </div>
+    <div class="song-title">Sajni Re</div>
+  </div>
+  <div class="card" onclick="playSong('music/Hass_Hass__Official_Video__Diljit_X_Sia(0).mp4', 'Hass Hass', 'lm_thumbnail/1000023519.png')">
+    <div class="album-art">
+      <img src="lm_thumbnail/1000023519.png" alt="Song 28 Cover" />
+    </div>
+    <div class="song-title">Hass Hass</div>
+  </div>
+  <div class="card" onclick="playSong('music/JAWAN__Chaleya__Hindi____Shah_Rukh_Khan___Nayanthara___Atlee___Anirudh___Arijit_S,_Shilpa_R___Kumaar(0).mp4', 'Chaleya', 'lm_thumbnail/1000023525.png')">
+    <div class="album-art">
+      <img src="lm_thumbnail/1000023525.png" alt="Song 29 Cover" />
+    </div>
+    <div class="song-title">Chaleya</div>
+  </div>
+  <div class="card" onclick="playSong('music/Soni_Soni___Ishq_Vishk_Rebound___Rohit_Saraf,_Pashmina__@DarshanRavalDZ@jonitamusic,_Rochak,Gurpreet(0).mp4', 'Soni Soni', 'lm_thumbnail/1000023529.png')">
+    <div class="album-art">
+      <img src="lm_thumbnail/1000023529.png" alt="Song 30 Cover" />
+    </div>
+    <div class="song-title">Soni Soni</div>
+  </div>
+  <p id="noResults" style="display: none; text-align: center; color: #ccc;">No songs found.</p>
+
+</Main>
+
+  <!-- ...continue this pattern for all your songs... -->
+</section>
+<section id="trending" class="trending-section" style="max-width:1300px;margin:30px auto 0 auto;">
+  <h2 style="color:white;margin-bottom:20px;">🔥 Trending Songs</h2>
+  <div style="display:flex;gap:20px;flex-wrap:wrap;justify-content:center;">
+    <div class="card" onclick="playSong('music/No_Love__Official_Audio__-_Shubh(0).mp3', 'No love', 'lm_thumbnail/1000023450.png')">
+      <div class="album-art">
+        <img src="lm_thumbnail/1000023450.png" alt="No Love Cover" />
+      </div>
+      <div class="song-title">No love</div>
+    </div>
+    <div class="card" onclick="playSong('music/We_Rollin__Official_Audio__-_Shubh(0).mp4', 'Rollin', 'lm_thumbnail/1000023438.png')">
+      <div class="album-art">
+        <img src="lm_thumbnail/1000023438.png" alt="Rollin Cover" />
+      </div>
+      <div class="song-title">Rollin</div>
+    </div>
+    <div class="card" onclick="playSong('music/Phir_Aur_Kya_Chahiye__Zara_Hatke_Zara_Bachke__Vicky_K,_Sara_Ali_K,_Arijit_Singh,Sachin-Jigar,Amitabh(0).mp4', 'Phir aur Kya Chahiye', 'lm_thumbnail/1000023446.png')">
+      <div class="album-art">
+        <img src="lm_thumbnail/1000023446.png" alt="Phir aur Kya Chahiye Cover" />
+      </div>
+      <div class="song-title">Phir aur Kya Chahiye</div>
+    </div>
+    <div class="card" onclick="playSong('music/SADQAY_-_AASHIR_WAJAHAT_x_NAYEL_x_NEHAAL_NASEEM__MUSIC_VIDEO__-_KE_JANAM_PYAAR_TUMSE_HAI(0).mp4', 'Sadqay', 'lm_thumbnail/1000023443.png')">
+      <div class="album-art">
+        <img src="lm_thumbnail/1000023443.png" alt="Sadqay Cover" />
+      </div>
+      <div class="song-title">Sadqay</div>
+    </div>
+    <div class="card" onclick="playSong('music/JAWAN__Chaleya__Hindi____Shah_Rukh_Khan___Nayanthara___Atlee___Anirudh___Arijit_S,_Shilpa_R___Kumaar(0).mp4', 'Chaleya', 'lm_thumbnail/1000023525.png')">
+      <div class="album-art">
+        <img src="lm_thumbnail/1000023525.png" alt="Chaleya Cover" />
+      </div>
+      <div class="song-title">Chaleya</div>
+    </div>
+    <div class="card" onclick="playSong('music/Hass_Hass__Official_Video__Diljit_X_Sia(0).mp4', 'Hass Hass', 'lm_thumbnail/1000023519.png')">
+      <div class="album-art">
+        <img src="lm_thumbnail/1000023519.png" alt="Hass Hass Cover" />
+      </div>
+      <div class="song-title">Hass Hass</div>
+    </div>
+    <div class="card" onclick="playSong('music/Spain__Official_Video_with_Extended_Version____Jassa_Dhillon___thiarajxtt___VIBIN(0).mp4', 'Spain', 'lm_thumbnail/1000023458.png')">
+      <div class="album-art">
+        <img src="lm_thumbnail/1000023458.png" alt="Spain Cover" />
+      </div>
+      <div class="song-title">Spain</div>
+    </div>
+    <div class="card" onclick="playSong('music/ANIMAL__SATRANGA__Lyrical_Video__Ranbir_K,Rashmika_Sandeep_Arijit,Shreyas,Siddharth-Garima_Bhushan_K(0).mp3', 'Satranga', 'lm_thumbnail/1000023500.png')">
+      <div class="album-art">
+        <img src="lm_thumbnail/1000023500.png" alt="Satranga Cover" />
+      </div>
+      <div class="song-title">Satranga</div>
+    </div>
+    <div class="card" onclick="playSong('music/Soni_Soni___Ishq_Vishk_Rebound___Rohit_Saraf,_Pashmina__@DarshanRavalDZ@jonitamusic,_Rochak,Gurpreet(0).mp4', 'Soni Soni', 'lm_thumbnail/1000023529.png')">
+      <div class="album-art">
+        <img src="lm_thumbnail/1000023529.png" alt="Soni Soni Cover" />
+      </div>
+      <div class="song-title">Soni Soni</div>
+    </div>
+    <!-- Add more trending cards as needed, following the same pattern -->
+  </div>
+<!-- Add this after the trending section and before <section class="main-container"> -->
+<section id="for-you" class="for-you-section" style="max-width:1300px;margin:30px auto 0 auto;">
+  <h2 style="color:white;margin-bottom:20px;">✨ For You</h2>
+  <div style="display:flex;gap:20px;flex-wrap:wrap;justify-content:center;">
+    <div class="card" onclick="playSong('music/Akhiyaan_Gulaab__Song___Shahid_Kapoor,_Kriti_Sanon___Mitraz___Teri_Baaton_Mein_Aisa_Uljha_Jiya(0).mp4', 'Akhiyan Gulaab', 'lm_thumbnail/1000023062.png')">
+      <div class="album-art">
+        <img src="lm_thumbnail/1000023062.png" alt="Akhiyan Gulaab Cover" />
+      </div>
+      <div class="song-title">Akhiyan Gulaab</div>
+    </div>
+    <div class="card" onclick="playSong('music/Soni_Soni___Ishq_Vishk_Rebound___Rohit_Saraf,_Pashmina__@DarshanRavalDZ@jonitamusic,_Rochak,Gurpreet(0).mp4', 'Soni Soni', 'lm_thumbnail/1000023529.png')">
+      <div class="album-art">
+        <img src="lm_thumbnail/1000023529.png" alt="Soni Soni Cover" />
+      </div>
+      <div class="song-title">Soni Soni</div>
+    </div>
+    <div class="card" onclick="playSong('music/Spain__Official_Video_with_Extended_Version____Jassa_Dhillon___thiarajxtt___VIBIN(0).mp4', 'Spain', 'lm_thumbnail/1000023458.png')">
+      <div class="album-art">
+        <img src="lm_thumbnail/1000023458.png" alt="Spain Cover" />
+      </div>
+      <div class="song-title">Spain</div>
+    </div>
+    <div class="card" onclick="playSong('music/Good_Bad_Ugly__God_Bless_U_Lyrical_Video___Ajith___Anirudh___GV_Prakash___Adhik_Ravichandran(0).mp4', 'God Bless U', 'lm_thumbnail/1000023502.png')">
+      <div class="album-art">
+        <img src="lm_thumbnail/1000023502.png" alt="God Bless U Cover" />
+      </div>
+      <div class="song-title">God Bless U</div>
+    </div>
+    <div class="card" onclick="playSong('music/Uyi_Amma_-_Azaad___Aaman_D,_Rasha_Thadani__Madhubanti_Bagchi,Amit_Trivedi,Amitabh__Bosco__Abhishek_K(0).mp4', 'Uyi Amma', 'lm_thumbnail/1000023466.png')">
+      <div class="album-art">
+        <img src="lm_thumbnail/1000023466.png" alt="Uyi Amma Cover" />
+      </div>
+      <div class="song-title">Uyi Amma</div>
+    </div>
+    <!-- Add more personalized recommendations as needed -->
+  </div>
+</section>
+
+<section id="liked-songs" class="liked-songs-section" style="max-width:1300px;margin:30px auto 0 auto;">
+  <h2 style="color:white;margin-bottom:20px;">❤️ Liked Songs</h2>
+  <div style="display:flex;gap:20px;flex-wrap:wrap;justify-content:center;">
+    <div class="card" onclick="playSong('music/No_Love__Official_Audio__-_Shubh(0).mp3', 'No love', 'lm_thumbnail/1000023450.png')">
+      <div class="album-art">
+        <img src="lm_thumbnail/1000023450.png" alt="No Love Cover" />
+      </div>
+      <div class="song-title">No love</div>
+    </div>
+    <div class="card" onclick="playSong('music/THAA_-_Varinder_Brar__Official_Music_Video____Punjabi_Hit_Songs(0).mp4', 'Thaa', 'lm_thumbnail/1000023430.png')">
+      <div class="album-art">
+        <img src="lm_thumbnail/1000023430.png" alt="Thaa Cover" />
+      </div>
+      <div class="song-title">Thaa</div>
+    </div>
+    <div class="card" onclick="playSong('music/Soni_Soni___Ishq_Vishk_Rebound___Rohit_Saraf,_Pashmina__@DarshanRavalDZ@jonitamusic,_Rochak,Gurpreet(0).mp4', 'Soni Soni', 'lm_thumbnail/1000023529.png')">
+      <div class="album-art">
+        <img src="lm_thumbnail/1000023529.png" alt="Soni Soni Cover" />
+      </div>
+      <div class="song-title">Soni Soni</div>
+    </div>
+    <div class="card" onclick="playSong('music/Pushpa__Srivalli_-_Lyrical__Hindi____Allu_Arjun,_Rashmika_Mandanna___Javed_Ali___DSP___Sukumar(0).mp4', 'Shrivalli', 'lm_thumbnail/1000023420.png')">
+      <div class="album-art">
+        <img src="lm_thumbnail/1000023420.png" alt="Shrivalli Cover" />
+      </div>
+      <div class="song-title">Shrivalli</div>
+    </div>
+    <div class="card" onclick="playSong('music/Phir_Aur_Kya_Chahiye__Zara_Hatke_Zara_Bachke__Vicky_K,_Sara_Ali_K,_Arijit_Singh,Sachin-Jigar,Amitabh(0).mp4', 'Phir aur Kya Chahiye', 'lm_thumbnail/1000023446.png')">
+      <div class="album-art">
+        <img src="lm_thumbnail/1000023446.png" alt="Phir aur Kya Chahiye Cover" />
+      </div>
+      <div class="song-title">Phir aur Kya Chahiye</div>
+    </div>
+    <!-- Add more liked songs as needed -->
+  </div>
+
+</section>
+
+<!-- Bottom music player bar -->
+<!-- Bottom music player bar -->
+<div id="bottom-player" style="
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: #222;
+  padding: 10px 0;
+  text-align: center;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.4);
+  z-index: 1000;
+  display: none;
+">
+  <img id="player-thumb" src="" alt="Album Art" style="width:60px;height:60px;border-radius:10px;vertical-align:middle;margin-right:15px;object-fit:cover;display:inline-block;">
+  <span id="now-playing" style="color:white;font-weight:bold;margin-right:20px;"></span>
+  <audio id="audio-player" controls style="width:60%;">
+    <source src="" type="audio/mpeg">
+    <source src="" type="audio/ogg">
+    <source src="" type="audio/wav">
+    Your browser does not support the audio element.
+  </audio>
+  <button id="like-btn" style="margin-left:15px;font-size:1.5rem;background:none;border:none;color:#bbb;cursor:pointer;">&#9829;</button>
+  <button onclick="closePlayer()" style="margin-left:10px;padding:5px 15px;border-radius:10px;border:none;background:#444;color:white;cursor:pointer;">Close</button>
+</div>
+
+<script>
+function playSong(songPath, songTitle, imgPath) {
+  var playerBar = document.getElementById('bottom-player');
+  var audio = document.getElementById('audio-player');
+  var nowPlaying = document.getElementById('now-playing');
+  var likeBtn = document.getElementById('like-btn');
+  var thumb = document.getElementById('player-thumb');
+  audio.src = songPath;
+  nowPlaying.textContent = "Now Playing: " + songTitle;
+  if (thumb && imgPath) thumb.src = imgPath;
+  playerBar.style.display = 'block';
+  audio.play();
+
+  // Set like button color based on liked status
+  if (likedSongs.some(song => song.title === songTitle)) {
+    likeBtn.style.color = '#e74c3c';
+  } else {
+    likeBtn.style.color = '#bbb';
+  }
+
+  // Store current song info for like button
+  likeBtn.dataset.songTitle = songTitle;
+  likeBtn.dataset.songSrc = songPath;
+  likeBtn.dataset.imgPath = imgPath || '';
+}
+function closePlayer() {
+  var playerBar = document.getElementById('bottom-player');
+  var audio = document.getElementById('audio-player');
+  audio.pause();
+  audio.currentTime = 0;
+  playerBar.style.display = 'none';
+}
+</script>
+<script>
+document.getElementById('searchInput').addEventListener('input', function() {
+  var filter = this.value.toLowerCase();
+  var cards = document.querySelectorAll('.card');
+  cards.forEach(function(card) {
+    var title = card.querySelector('.song-title');
+    if (title && title.textContent.toLowerCase().includes(filter)) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+});
+</script>
+<script>
+let likedSongs = [];
+
+document.getElementById('like-btn').addEventListener('click', function() {
+  const songTitle = this.dataset.songTitle;
+  const audioSrc = this.dataset.songSrc;
+  const imgPath = this.dataset.imgPath;
+  if (!songTitle || !audioSrc) return;
+
+  // Prevent duplicate likes
+  if (likedSongs.some(song => song.title === songTitle)) return;
+
+  likedSongs.push({ title: songTitle, src: audioSrc, img: imgPath });
+
+  // Add to liked section visually
+  const likedSection = document.querySelector('#liked-songs > div');
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.onclick = function() { playSong(audioSrc, songTitle, imgPath); };
+  card.innerHTML = `
+    <div class="album-art">
+      <img src="${imgPath}" alt="${songTitle} Cover" />
+    </div>
+    <div class="song-title">${songTitle}</div>
+  `;
+  likedSection.appendChild(card);
+
+  // Change like button color
+  this.style.color = '#e74c3c';
+});
+
+
+</script>
+</body>
+</html>
